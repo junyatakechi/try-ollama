@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  ollama:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "11434:11434"
+    volumes:
+      - ./ollama_data:/root/.ollama
+    command: /bin/bash -c "ollama serve"
+    entrypoint: []
+    stdin_open: true
+    tty: true
+    restart: "no"
